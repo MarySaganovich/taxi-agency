@@ -1,4 +1,6 @@
 package com.taxiagency.domain;
 
-public class Color {
+public enum Color {
+    Black, Red, White;
+    
 }
