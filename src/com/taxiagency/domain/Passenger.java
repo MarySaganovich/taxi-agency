@@ -2,30 +2,22 @@ package com.taxiagency.domain;
 
 public class Passenger implements Entity {
     private String id;
-    private String name;
-    private String mobilePhone;
-@Override
+    private String passengersName;
+    private String passengersPhoneNumber;
+
+    @Override
     public String getId() {
-        return id;
+        return null;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public void setId(String b) {
+
     }
 
-    public String getMobilePhone() {
-        return mobilePhone;
-    }
-@Override
-    public void setId(String id) {
+    public Passenger(String id, String passengersName, String passengersPhoneNumber) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+        this.passengersName = passengersName;
+        this.passengersPhoneNumber = passengersPhoneNumber;
     }
 }
