@@ -1,6 +1,5 @@
 package com.taxiagency.dao;
 
-import com.taxiagency.domain.Driver;
 import com.taxiagency.domain.Entity;
 
 import java.io.BufferedWriter;
@@ -40,23 +39,23 @@ public class FileDao<B> implements Dao {
         return null;
     }
 
-    public void createFile(String dir, String fileName, List<B> list){
-        File pathDrivers = new File(dir);
-        boolean created1 = pathDrivers.mkdirs();
+    public void createFile(String dir, String fileName, List<B> list) {
+        File path = new File(dir);
+        boolean created1 = path.mkdirs();
+        System.out.println(list);
         if (created1) {
-            File fileDriver = new File(dir + fileName);
+            File file = new File(dir + fileName);
             try {
-                if (!fileDriver.exists()) {
-                    fileDriver.createNewFile();
+                if (!file.exists()) {
+                    file.createNewFile();
                 }
             } catch (IOException e4) {
                 e4.printStackTrace();
             }
 
-            try (FileWriter fwDriver = new FileWriter(fileDriver);
-                 BufferedWriter bwDriver = new BufferedWriter(fwDriver)) {
-                bwDriver.write(list.toString());
-
+            try (FileWriter fw = new FileWriter(file);
+                 BufferedWriter bw = new BufferedWriter(fw)) {
+                 bw.write(list.toString());
             } catch (IOException e5) {
                 e5.printStackTrace();
             }

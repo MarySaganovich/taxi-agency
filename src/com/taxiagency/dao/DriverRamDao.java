@@ -11,25 +11,6 @@ public class DriverRamDao extends RamDao implements DriverDao {
         return null;
     }
 
-//    @Override
-//    public String save(Entity obj) {
-//        return null;
-//    }
-
-//    @Override
-//    public void update(Entity obj) {
-//
-//    }
-//
-//    @Override
-//    public void upsert(Entity obj) {
-//
-//    }
-//
-//    @Override
-//    public void delete(Entity obj) {
-//
-//    }
 
     @Override
     public Entity findById(String id) {

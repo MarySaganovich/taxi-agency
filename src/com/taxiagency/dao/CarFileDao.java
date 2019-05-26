@@ -3,9 +3,6 @@ package com.taxiagency.dao;
 import com.taxiagency.domain.Car;
 import com.taxiagency.domain.Color;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.List;
 
 public class CarFileDao extends FileDao implements CarDao {

@@ -36,6 +36,6 @@ public class Car implements Entity {
 
     @Override
     public String toString() {
-        return "\n(id:" + id + ", color" + carsColor + ", carsNumber:" + carsNumber + ")";
+        return "(id:" + id + ", color:" + carsColor + ", carsNumber:" + carsNumber + ")";
     }
 }
