@@ -1,5 +1,6 @@
 package com.taxiagency.dao;
 
+import com.taxiagency.domain.Car;
 import com.taxiagency.domain.Entity;
 
 import java.util.*;
@@ -42,12 +43,26 @@ public class RamDao<T extends Entity> implements Dao<T> {
 
     @Override
     public List<T> findAll() {
+        return this.find(null);
+    }
+
+    public List<T> find(String param) {
         List<T> objects = new ArrayList<>();
         Set<String> keys = ram.keySet();
-
+        System.out.println(ram);
         for (String key : keys) {
             T obj = ram.get(key);
-            objects.add(obj);
+
+            if (param == null || param.trim().equals("")) {
+                objects.add(obj);
+            } else {
+                if (obj instanceof Car) {
+
+                    }
+                if (obj.toString().contains(param)) {
+                    objects.add(obj);
+                }
+            }
         }
         return objects;
     }

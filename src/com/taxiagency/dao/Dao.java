@@ -13,4 +13,9 @@ public interface Dao<T extends Entity> {
     T findById(String id);
     List<T> findAll();
 
+
+
 }
+
+
+

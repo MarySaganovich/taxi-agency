@@ -17,19 +17,19 @@ public class Main {
 
         for (int t = 0; t < 10; t++) {
             String id = String.valueOf(t + 1);
+
             Car car = new Car(id, Color.wishColor(), "");
             car.setCarsNumber();
             car1.save(car);
-
+            // save car
             Driver driver = new Driver(id, DriversName.wishName());
             drivers.save(driver);
-
-            Passenger passenger1 = new Passenger(id,
-                    PassengersName.nameP(), "");
-            passenger1.setPassengersPhoneNumber();
+            // save driver
+            Passenger passenger1 = new Passenger(id, PassengersName.nameP(), "");
+            passenger1.setPassengersPhoneNumber("123456789");
             passengers.save(passenger1);
-
-            Trip trip1 = new Trip(id, Route.wishRoute(),driver , car, passenger1 , "");
+            // save trip
+            Trip trip1 = new Trip(id, Route.wishRoute(), driver, car, passenger1, "");
             trip1.setDurationMins();
             trips.save(trip1);
         }
@@ -46,6 +46,10 @@ public class Main {
         List<Trip> allTrips = trips.findAll();
         System.out.println(allTrips);
 
+        System.out.println("Find by Passengers Name 'Mark': " + ((PassengerRamDao) passengers).findByName("Mark"));
+        System.out.println("Find by Passengers Phone '111-34-24': " + ((PassengerRamDao) passengers).findByPhoneRegexp("123-45-67"));
+        System.out.println("Find by Drivers Name 'Mateo': " + ((DriverRamDao) drivers).findByName("Mateo"));
+        System.out.println("Find by Cars Color 'Black': " + ((CarRamDao) car1).findByColor(Color.Black));
 
         String carsDir = "D:\\saganovichm\\taxiagency\\cars";
         String fileCarsName = "\\cars.txt";
@@ -67,6 +71,5 @@ public class Main {
         TripFileDao p = new TripFileDao();
         p.createFile(tripDir, fileTripsName, allTrips);
     }
-
 }
 

@@ -1,20 +1,20 @@
 package com.taxiagency.dao;
 
 import com.taxiagency.domain.Driver;
-import com.taxiagency.domain.Entity;
 
-import java.util.List;
+import java.util.*;
 
 public class DriverRamDao extends RamDao implements DriverDao {
+
+    private Map<String, Driver> ramDriver;
+
+    public DriverRamDao() {
+
+        this.ramDriver = new HashMap<>();
+    }
+
     @Override
     public List<Driver> findByName(String driversName) {
-        return null;
+        return this.find(driversName);
     }
-
-
-    @Override
-    public Entity findById(String id) {
-        return null;
-    }
-
 }

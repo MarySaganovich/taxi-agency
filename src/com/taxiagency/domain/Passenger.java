@@ -22,8 +22,8 @@ public class Passenger implements Entity {
         this.passengersPhoneNumber = passengersPhoneNumber;
     }
 
-    private static String pPhoneNumber() {
-        String rSymbols = "123456789";
+    private static String pPhoneNumber(String number) {
+        String rSymbols = number;
         StringBuilder rPNumber = new StringBuilder();
         for (int p = 0; p < 7 ; p++) {
             rPNumber.append(rSymbols.charAt((int) (Math.random() * rPNumber.length())));
@@ -35,8 +35,8 @@ public class Passenger implements Entity {
         return formattedPhoneNumber;
     }
 
-    public void setPassengersPhoneNumber() {
-        this.passengersPhoneNumber = pPhoneNumber();
+    public void setPassengersPhoneNumber(String number) {
+        this.passengersPhoneNumber = pPhoneNumber(number);
     }
 
     @Override
